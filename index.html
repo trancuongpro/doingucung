@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Đổi Sang Ngũ Cung</title>
+    <!-- Nhúng thư viện OpenSheetMusicDisplay từ file cục bộ -->
+    <script src="lib/opensheetmusicdisplay.min.js"></script>
+    <!-- Liên kết file CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chuyển Đổi Sang Ngũ Cung</h1>
+
+        <!-- Input tải file được điều khiển bằng label -->
+        <label for="file-input" class="upload-label" id="upload-label">Upload Nhấn Vào Đây</br>Đúng File Sheet Đuôi XML Nha</label>
+        <input type="file" id="file-input" accept=".xml, .musicxml">
+
+        <!-- Nút thực hiện, ban đầu bị vô hiệu hóa -->
+        <button id="convert-btn" disabled>Thực Hiện</button>
+
+        <p class="note-warning">Lưu Ý : Sheet Trên Mạng Là Đuôi PDF Hoặc MXL Bạn Cần Đổi Sang XML Mới Thực Hiện Được Cảm Ơn</br>Dùng Phần Mềm MuseScore Để Mở Sheet Bằng PDF Và MXL Sau Đó Xuất Ra XML</br>---Chúc Thành Công---</p>
+
+        <!-- Khu vực để hiển thị sheet nhạc -->
+        <div id="osmd-container"></div>
+        
+        <!-- Khu vực hiển thị kết quả chuyển đổi -->
+        <div id="result-container"></div>
+
+        <!-- Lời cảm ơn -->
+        <p class="thank-you">Cảm Ơn Đã Tin Tưởng Web Của Trần Cường</p>
+    </div>
+
+    <!-- Liên kết file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
