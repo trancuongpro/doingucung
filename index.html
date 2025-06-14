@@ -4,35 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chuyển Đổi Sang Ngũ Cung</title>
-    <!-- Nhúng thư viện OpenSheetMusicDisplay từ file cục bộ -->
-    <script src="lib/opensheetmusicdisplay.min.js"></script>
-    <!-- Liên kết file CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Chuyển Đổi Sang Ngũ Cung</h1>
 
-        <!-- Input tải file được điều khiển bằng label -->
-        <label for="file-input" class="upload-label" id="upload-label">Upload Nhấn Vào Đây</br>Đúng File Sheet Đuôi XML Nha</label>
-        <input type="file" id="file-input" accept=".xml, .musicxml">
+        <label for="file-input" class="upload-label" id="upload-label">
+            Nhấn Vào Đây Để Upload<br>File Sheet Đuôi XML
+        </label>
+        <input type="file" id="file-input" accept=".xml,.musicxml">
 
-        <!-- Nút thực hiện, ban đầu bị vô hiệu hóa -->
         <button id="convert-btn" disabled>Thực Hiện</button>
 
-        <p class="note-warning">Lưu Ý : Sheet Trên Mạng Là Đuôi PDF Hoặc MXL Bạn Cần Đổi Sang XML Mới Thực Hiện Được Cảm Ơn</br>Dùng Phần Mềm MuseScore Để Mở Sheet Bằng PDF Và MXL Sau Đó Xuất Ra XML</br>---Chúc Thành Công---</p>
+        <div class="note-warning">
+            <strong>Lưu Ý:</strong> Sheet trên mạng thường có đuôi PDF hoặc MXL. Bạn cần đổi sang XML mới thực hiện được. Dùng phần mềm MuseScore để mở sheet bằng PDF và MXL, sau đó xuất ra XML.<br>Khi upload file sheet, nhấn vào nút "Thực Hiện" để chuyển đổi sang Ngũ Cung. <br>---Chúc Thành Công---
+        </div>
 
-        <!-- Khu vực để hiển thị sheet nhạc -->
         <div id="osmd-container"></div>
-        
-        <!-- Khu vực hiển thị kết quả chuyển đổi -->
         <div id="result-container"></div>
 
-        <!-- Lời cảm ơn -->
-        <p class="thank-you">Cảm Ơn Đã Tin Tưởng Web Của Trần Cường</p>
+        <div class="thank-you">
+            Cảm Ơn Đã Tin Tưởng Web Của Trần Cường<br>Zalo: 0907860662
+        </div>
     </div>
 
-    <!-- Liên kết file JavaScript -->
+    <script src="opensheetmusicdisplay.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
