@@ -103,46 +103,35 @@ h1 {
     border: 1px solid #fbc02d; /* Viền vàng */
 }
 
-/* Container cho bản nhạc */
-#osmd-container {
+/* Container cho các đoạn sheet */
+#sheet-container {
     margin-top: 25px;
-    border: 1px solid #b0b0b0; /* Viền xám nhạt */
+}
+
+/* Container cho từng đoạn sheet */
+.sheet-segment {
+    margin-bottom: 20px;
+    border: 1px solid #b0b0b0;
     border-radius: 8px;
     overflow: hidden;
-    background-color: #333333; /* Nền xám đậm */
-    display: none;
+    background-color: #333333;
 }
 
-/* Kiểu khi sheet hợp lệ - Chế độ sáng */
-#osmd-container.valid-sheet {
-    background-color: #ffffff; /* Nền trắng */
-    border-color: #4caf50; /* Viền xanh lá sáng */
-    box-shadow: 0 0 12px rgba(76, 175, 80, 0.6); /* Bóng xanh sáng */
+/* Kiểu khi sheet hợp lệ */
+.sheet-segment.valid-sheet {
+    background-color: #ffffff;
+    border-color: #4caf50;
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.6);
 }
 
-/* Container cho kết quả ngũ cung */
-#result-container {
-    margin-top: 25px;
-    padding: 15px;
-    border: 1px solid #b0b0b0; /* Viền xám nhạt */
-    border-radius: 8px;
-    background-color: #333333; /* Nền xám đậm */
-    text-align: left;
-    white-space: pre-wrap;
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #e0e0e0; /* Chữ sáng */
-    display: none;
-}
-
-/* Tiêu đề cho kết quả ngũ cung */
-#result-container .result-title {
+/* Tiêu đề cho từng đoạn */
+.segment-title {
     font-size: 16px;
-    color: #ff9999; /* Đỏ nhạt sáng hơn */
+    color: #ff9999;
     font-weight: bold;
-    margin-bottom: 10px;
     text-align: center;
-    text-shadow: 0 0 3px rgba(255, 153, 153, 0.5); /* Hiệu ứng sáng nhẹ */
+    padding: 10px;
+    text-shadow: 0 0 3px rgba(255, 153, 153, 0.5);
 }
 
 /* Dòng chữ cảm ơn cuối cùng */

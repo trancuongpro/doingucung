@@ -10,22 +10,26 @@
     <div class="container">
         <h1>Chuyển Đổi Sang Ngũ Cung</h1>
 
-        <label for="file-input" class="upload-label" id="upload-label">
-            Nhấn Vào Đây Để Upload<br>File Sheet Đuôi XML
+        <label for="file-input" id="upload-label" class="upload-label">
+            Nhấn Vào Đây Để Upload File Sheet Đuôi XML
         </label>
         <input type="file" id="file-input" accept=".xml,.musicxml">
 
         <button id="convert-btn" disabled>Thực Hiện</button>
 
         <div class="note-warning">
-            <strong>Lưu Ý:</strong> Sheet trên mạng thường có đuôi PDF hoặc MXL. Bạn cần đổi sang XML mới thực hiện được. Dùng phần mềm MuseScore để mở sheet bằng PDF và MXL, sau đó xuất ra XML.<br>Khi upload file sheet, nhấn vào nút "Thực Hiện" để chuyển đổi sang Ngũ Cung. <br>---Chúc Thành Công---
+            Lưu Ý: Sheet trên mạng thường có đuôi PDF hoặc MXL.</br>Bạn cần đổi sang XML mới thực hiện được.</br>Dùng phần mềm MuseScore để mở sheet bằng PDF và MXL sau đó xuất ra XML.</br>
+            Khi upload file sheet, nhấn vào nút "Thực Hiện" để chuyển đổi sang Ngũ Cung.</br> 
+            ---Chúc Thành Công---
         </div>
 
-        <div id="osmd-container"></div>
-        <div id="result-container"></div>
+        <div id="sheet-container">
+            <!-- Các đoạn sheet sẽ được thêm động vào đây -->
+        </div>
 
         <div class="thank-you">
-            Cảm Ơn Đã Tin Tưởng Web Của Trần Cường<br>Zalo: 0907860662
+            Cảm Ơn Đã Tin Tưởng Web Của Trần Cường<br>
+            Zalo: 0907860662
         </div>
     </div>
 
