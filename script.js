@@ -62,6 +62,10 @@ function createPentatonicMusicXML(measures, startMeasure, endMeasure) {
         newPart.appendChild(firstNewMeasure);
     }
 
+    // Biến để theo dõi hàng lyric và hướng chuyển đổi (tăng hoặc giảm)
+    let lyricRow = 1; // Bắt đầu từ hàng 1
+    let direction = 1; // 1: tăng (1->5), -1: giảm (5->1)
+
     // Lấy các measure trong khoảng
     for (let i = startMeasure; i <= endMeasure && i < measures.length; i++) {
         if (!isValidMeasure(measures[i])) {
@@ -71,9 +75,6 @@ function createPentatonicMusicXML(measures, startMeasure, endMeasure) {
         const measure = measures[i].cloneNode(true);
         measure.setAttribute('number', (i - startMeasure + 1).toString());
         const notes = measure.getElementsByTagName('note');
-
-        let lastDuration = 0; // Theo dõi duration của nốt trước
-        let lyricRow = 1; // Bắt đầu từ hàng lyric 1
 
         for (let j = 0; j < notes.length; j++) {
             const note = notes[j];
@@ -85,16 +86,6 @@ function createPentatonicMusicXML(measures, startMeasure, endMeasure) {
             const stepElement = note.getElementsByTagName('step')[0];
             const step = stepElement.textContent.trim().toUpperCase();
             const pentatonicNote = translationMap[step] || step;
-            const durationElement = note.getElementsByTagName('duration')[0];
-            const duration = durationElement ? parseInt(durationElement.textContent) : 0;
-
-            // Nếu nốt hiện tại quá gần nốt trước (duration nhỏ), chuyển sang hàng lyric khác
-            if (j > 0 && duration <= 2 && lastDuration <= 2) {
-                lyricRow = lyricRow === 1 ? 2 : 1; // Chuyển giữa hàng 1 và 2
-            } else {
-                lyricRow = 1; // Đặt lại về hàng 1 nếu không gần
-            }
-            lastDuration = duration;
 
             // Thêm lời bài hát (lyric) với tên ngũ cung
             const lyric = newXmlDoc.createElement('lyric');
@@ -105,7 +96,23 @@ function createPentatonicMusicXML(measures, startMeasure, endMeasure) {
             text.textContent = pentatonicNote;
             lyric.appendChild(syllabic);
             lyric.appendChild(text);
+
+            // Thêm font-size cho lyric (giảm kích thước chữ)
+            const fontSize = newXmlDoc.createElement('font-size');
+            fontSize.textContent = '8'; // Kích thước chữ nhỏ hơn (có thể điều chỉnh)
+            lyric.appendChild(fontSize);
+
             note.appendChild(lyric);
+
+            // Cập nhật lyricRow cho nốt tiếp theo
+            lyricRow += direction;
+            if (lyricRow > 5) {
+                lyricRow = 4; // Quay lại hàng 4
+                direction = -1; // Đổi hướng giảm
+            } else if (lyricRow < 1) {
+                lyricRow = 2; // Quay lại hàng 2
+                direction = 1; // Đổi hướng tăng
+            }
         }
         newPart.appendChild(measure);
     }
